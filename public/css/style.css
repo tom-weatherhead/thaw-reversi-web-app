@@ -1,0 +1,120 @@
+/* thaw-reversi-web-app/public/css/style.css */
+
+.standardBody
+{
+    font-family: "Times New Roman",Serif;
+    font-size: medium;
+    margin: 0;                              /* Necessary to eliminate the margin around the outer edges of the page. */
+}
+
+#topContent
+{
+    text-align: center;
+    background-color: #600;                 /* Why are there only three hex digits instead of six?  This might be the same as #660000 */
+    /* background-color: black; */
+    color: white;
+    font-size: x-large;
+    /* text-decoration: none;   I believe that this suppresses the underline under links. */
+    font-weight: bold;
+    padding: 10px;
+    height: 35px;
+}
+
+.box
+{
+    text-align: left;
+    margin: 1px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.tightBox
+{
+    border: 1px solid black;
+    padding: 0;
+}
+
+.centreText
+{
+    text-align: center;
+}
+
+.centreUsingMargins
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#validIcons img
+{
+    width: 88px;
+    height: 31px;
+    border: 0;
+}
+
+/* Pipes - Style.css - Cascading Style Sheet - February 8, 2011 */
+
+#mainContent table
+{
+    margin-left: auto;          /* This line and the next are from http://www.granneman.com/webdev/coding/css/centertables/ ; they centre the table. */
+    margin-right: auto;
+    border-collapse: collapse;  /* Or border-spacing: 0px; this helps to eliminate space in the table. */
+}
+
+#mainContent td
+{
+    padding: 0;                 /* Necessary for elimination of spacing between the cells. */
+}
+
+#mainContent img
+{
+    display: block;             /* To eliminate space below the image.  See http://www.loriswebs.com/html-tips/form-button.html . */
+}
+
+/* **** End of File **** */
+
+/* Othello/Style.css - Cascading Style Sheet - March 7, 2012 */
+
+#mainContent
+{
+    height: 480px;
+}
+
+#leftContentOuter
+{
+    position: absolute;
+    top: 558px;  /* mainContent has a top of 55px, a height of 480px and margin of 10px, and 555 == 55 + 480 + 2 * 10. */
+    left: 0;
+    width: 50%;
+}
+
+#leftContent
+{
+    text-align: center;
+    height: 160px;
+    margin: 1px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#rightContentOuter
+{
+    margin: 0 0 0 50%;  /* 50% of the (screen? browser window?) width on the left side; zero on all other sides */
+}
+
+#rightContent
+{
+    text-align: center;
+    height: 160px;
+    margin: 1px 1px 1px 0;  /* Zero on the left side; 1 pixel on all other sides */
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.playerTitleText
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* **** End of File **** */
