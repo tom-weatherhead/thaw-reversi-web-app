@@ -1,8 +1,6 @@
 // thaw-reversi-web-app/script.js
 
-// Best move logic for Othello - MoveLogic.js - Javascript - March 15, 2012
-
-// **** Global Variable Declarations ****
+'use strict';
 
 var nNumDirections = 8;
 var adx = [-1, 0, 1, -1, 1, -1, 0, 1];          // adx.length == nNumDirections
@@ -43,7 +41,9 @@ function setSquareState(row, col, imageNumber, visible) {
     }
 }
 
-function isGameNotOver() {
+function isGameNotOver () {
+	// TODO: If neither player can make a legal move, the game is over.
+	// TODO: Let the game engine (thaw-reversi-engine) determine from the board alone whether or not neither player can move.
     return PiecePopulations[0] > 0 &&
         PiecePopulations[1] > 0 &&
         PiecePopulations[0] + PiecePopulations[1] < nBoardArea &&
@@ -144,113 +144,8 @@ function placePiece(nPlayer, nRow, nCol, undoBuffer, visible) {
     }
     // Else no opposing pieces were flipped, and the move fails.
 
-    // return nUndoSize + 1;
     return returnObject;
 }
-
-// function BestMoveData() {
-    // this.bestRow = -1;
-    // this.bestCol = -1;
-    // this.bestScore = 0;
-// }
-
-// function bestMove(
-	// nPlayer, nPly,
-	// nParentScore, nBestUncleRecursiveScore	// For alpha-beta pruning.
-	// ) {
-    // var nBestScore = -2 * nBoardArea;
-    // var bestMoveIndices = [];
-
-    // for (var nSquare = 0; nSquare < nBoardArea; ++nSquare) {
-        // var undoBuffer = [];
-
-        // var nRow = parseInt(nSquare / nBoardWidth, 10);
-        // var nCol = nSquare % nBoardWidth;
-        /*
-        var nScore = placePiece(nPlayer, nRow, nCol, undoBuffer, false);
-
-        if (nScore <= 0) {
-            continue;
-        }
-
-        //m_nMovesTried++;
-
-        var nUndoSize = nScore - 1;
-        */
-        // var placePieceResult = placePiece(nPlayer, nRow, nCol, undoBuffer, false);
-        // var nUndoSize = placePieceResult.numPiecesFlipped;
-
-        //alert("(" + nRow + "," + nCol + "): undo size == " + nUndoSize + "; score == " + placePieceResult.score);
-
-        // if (nUndoSize <= 0) {
-            // continue;
-        // }
-
-        //m_nMovesTried++;
-
-        // var nScore = placePieceResult.score;
-
-        // PiecePopulations[nPlayer] += nUndoSize + 1;
-        // PiecePopulations[1 - nPlayer] -= nUndoSize;
-
-        // if (PiecePopulations[1 - nPlayer] <= 0) {
-            // The opposing player has been annihilated.
-            // nScore = nBoardArea;
-        // } else if (nPly > 1 &&
-			// PiecePopulations[0] + PiecePopulations[1] < nBoardArea) {
-            // var childReturnObject = bestMove(1 - nPlayer, nPly - 1, nScore, nBestScore);
-
-            // nScore -= childReturnObject.bestScore;
-        // }
-
-        // setSquareState(nRow, nCol, EmptyNumber, false);
-        // PiecePopulations[nPlayer] -= nUndoSize + 1;
-        // PiecePopulations[1 - nPlayer] += nUndoSize;
-
-        // for (var i = 0; i < undoBuffer.length; ++i) {
-            // aBoardImageNumbers[undoBuffer[i]] = 1 - nPlayer;
-        // }
-
-        // if (nScore > nBestScore) {
-            // nBestScore = nScore;
-            // bestMoveIndices = [];
-            // bestMoveIndices.push(nSquare);
-
-            // if (nParentScore - nBestScore < nBestUncleRecursiveScore) {
-                // Alpha-beta pruning.  Because of the initial parameters for the top-level move, this break is never executed for the top-level move.
-                // break; // ie. return.
-            // }
-        // } else if (nScore == nBestScore) {
-            // bestMoveIndices.push(nSquare);
-        // }
-    // }
-
-    // var returnObject = new BestMoveData();
-
-    // if (bestMoveIndices.length > 0) {
-        // var i = parseInt(Math.random() * bestMoveIndices.length, 10);
-        // var nBestIndex = bestMoveIndices[i];
-
-        // returnObject.bestRow = parseInt(nBestIndex / nBoardWidth, 10);
-        // returnObject.bestCol = nBestIndex % nBoardWidth;
-    // }
-
-    // returnObject.bestScore = nBestScore;
-    // return returnObject;
-// }
-
-// function WorkerParameters(nPlayer, nPly) {
-    // this.aBoardImageNumbers = aBoardImageNumbers;
-    // this.PiecePopulations = PiecePopulations;
-    // this.nPlayer = nPlayer;
-    // this.nPly = nPly;
-// }
-
-// **** End of File ****
-
-// Othello - Script.js - Javascript - March 7, 2012
-
-// **** Global Variable Declarations ****
 
 var WhiteNumber = 0;
 var BlackNumber = 1;
@@ -496,34 +391,3 @@ function ddlLookaheadWhite_onChange() {
 function ddlLookaheadBlack_onChange() {
     PlayerPly[BlackNumber] = parseInt($("#ddlLookaheadBlack").val(), 10);
 }
-
-// **** End of File ****
-
-// HTML5 Web Worker for Othello - WebWorker.js - Javascript - March 15, 2012
-
-// **** Global Variable Declarations ****
-
-/*
-var aBoardImageNumbers = null;
-var nBoardArea = 0;
-var nBoardWidth = 0;
-var nBoardHeight = 0;
-*/
-
-// **** Function Declarations ****
-
-// onmessage = function (event) {
-    // var parameters = event.data;
-
-    // aBoardImageNumbers = parameters.aBoardImageNumbers;
-    //nBoardArea = aBoardImageNumbers.length;
-    //nBoardWidth = parameters.nBoardWidth;
-    //nBoardHeight = parseInt(nBoardArea / nBoardWidth, 10);
-    // PiecePopulations = parameters.PiecePopulations;
-
-    // var result = bestMove(parameters.nPlayer, parameters.nPly, 0, -2 * nBoardArea);
-
-    // postMessage(result);
-// };
-
-// **** End of File ****

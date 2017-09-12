@@ -14,8 +14,7 @@
   "scripts": {
     "lint": "grunt eslint",
     "nsp": "grunt nsp",
-    "start": "nodemon src/server.js",
-    "test": "grunt test"
+    "start": "nodemon src/server.js"
   },
   "bin": {
     "thaw-reversi-web-app": "src/server.js"

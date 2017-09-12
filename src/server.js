@@ -5,7 +5,7 @@
 'use strict';
 
 // require('rootpath')();
-const app = require('./app');
+const app = require('..');
 
 const config = require('../config/config');			// I.e. ./config.json
 
