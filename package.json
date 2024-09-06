@@ -20,8 +20,8 @@
     "thaw-reversi-web-app": "src/server.js"
   },
   "dependencies": {
-    "express": "^4.15.4",
-    "nodemon": "^1.11.0",
+    "express": "^4.16.0",
+    "nodemon": "^2.0.20",
     "thaw-reversi-engine": "^0.1.0"
   },
   "devDependencies": {
